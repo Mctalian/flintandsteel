@@ -26,7 +26,7 @@ angular.module('flintAndSteel')
                         isPresent = true;
                     }
                     else if (normalizedAbstract.indexOf(normalizedSearch) >= 0) {
-                        isPresent = true
+                        isPresent = true;
                     }
                     else if (typeof normalizedTags !== 'undefined') {
                         normalizedTags.forEach(function(tag) {

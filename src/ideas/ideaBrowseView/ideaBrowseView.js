@@ -14,7 +14,7 @@ angular.module('flintAndSteel')
 
             $scope.searchIdeas = function searchIdeas() {
                 $scope.ideas = $filter('search')(ideas, $scope.searchText);
-            }
+            };
 
             function setIdeaHeaders(data) {
                 ideas = data;
@@ -28,7 +28,7 @@ angular.module('flintAndSteel')
 
             sseSvc.create("newHeaders", "/ideaheaders/events", function(data) {
                 $scope.$apply(function() {
-                    setIdeaHeaders(data)
+                    setIdeaHeaders(data);
                 });
             });
 
