@@ -6,15 +6,22 @@ angular.module('flintAndSteel')
         function() {
             "use strict";
 
-            this.createPages = function createPages(content, numPages) {
+            this.createNumPages = function createPages(content, numPages) {
                 var pages = [];
                 var contentLength = content.length;
                 var numPerPage = Math.ceil(content.length / numPages);
 
-                for (var columnIndex = 0, index = 0;
-                    columnIndex < numPages, index < contentLength;
-                    columnIndex++, index += numPerPage) {
+                for (var index = 0; index < contentLength; index += numPerPage) {
+                    pages.push({start: index, length: numPerPage});
+                }
+                return pages;
+            };
 
+            this.createPerPage = function createPages(content, numPerPage) {
+                var pages = [];
+                var contentLength = content.length;
+
+                for (var index = 0; index < contentLength; index += numPerPage) {
                     pages.push({start: index, length: numPerPage});
                 }
                 return pages;

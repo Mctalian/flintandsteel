@@ -21,7 +21,7 @@ angular.module('flintAndSteel')
             ];
 
 
-            ctrl.columns = paginateSvc.createPages(ctrl.devTeam, NUM_DEV_TEAM_COLUMNS);
+            ctrl.columns = paginateSvc.createNumPages(ctrl.devTeam, NUM_DEV_TEAM_COLUMNS);
         }
     ]
 );
