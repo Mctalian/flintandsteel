@@ -3,15 +3,23 @@
 angular.module('flintAndSteel')
 .controller('IdeaBrowseViewCtrl',
     [
-        '$scope', 'ideaSvc', 'sseSvc',
-        function($scope, ideaSvc, sseSvc) {
+        '$scope', 'ideaSvc', 'sseSvc', '$filter',
+        function($scope, ideaSvc, sseSvc, $filter) {
             "use strict";
 
+            var ideas = [];
+
             $scope.loaded = false;
+            $scope.ideas = ideas;
+
+            $scope.searchIdeas = function searchIdeas() {
+                $scope.ideas = $filter('search')(ideas, $scope.searchText);
+            }
 
             function setIdeaHeaders(data) {
-                $scope.ideas = data;
+                ideas = data;
                 $scope.loaded = true;
+                $scope.searchIdeas($scope.searchText);
             }
 
             ideaSvc.getIdeaHeaders(setIdeaHeaders, function getIdeaHeadersError(data, status) {

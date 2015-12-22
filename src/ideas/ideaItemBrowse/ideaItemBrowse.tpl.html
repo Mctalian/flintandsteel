@@ -1,16 +1,16 @@
 <md-card>
     <md-card-content>
         <div flex="85">
-            <strong>{{idea.title}}</strong>
+            <strong>{{::idea.title}}</strong>
             <div layout="row" layout-align="start center">
                 <identicon username='idea.author.username' size='14'></identicon>
                 <span>&nbsp;</span>
-                <div class="accent-text author-accent">{{idea.author.name}}</div>
+                <div class="accent-text author-accent">{{::idea.author.name}}</div>
             </div>
         </div>
         <div flex layout="row">
             <md-button class="md-icon-button" aria-label="Like">
-                {{idea.likes}}
+                {{::idea.likes}}
                 <i class="material-icons icon-button-adjust">&#xE87E;</i>
                 <!--<i class="material-icons icon-button-adjust" ng-show="isUserLiked()">&#xE87D;</i>-->
                 <md-tooltip md-direction="bottom">
@@ -22,7 +22,7 @@
                 </md-tooltip>
             </md-button>
             <md-button class="md-icon-button" aria-label="Back">
-                {{idea.backs}}
+                {{::idea.backs}}
                 <i class="material-icons icon-button-adjust">&#xE893;</i>
                 <!--<i class="material-icons icon-button-adjust" ng-show="hasUserBacked()">&#xE892;</i>-->
                 <md-tooltip md-direction="bottom">
@@ -34,7 +34,7 @@
                 </md-tooltip>
             </md-button>
             <md-button class="md-icon-button" aria-label="Back">
-                {{idea.team}}
+                {{::idea.team}}
                 <i class="material-icons icon-button-adjust">&#xE7FC;</i>
                 <!--<i class="material-icons icon-button-adjust" ng-show="hasUserBacked()">&#xE7FB;</i>-->
                 <md-tooltip md-direction="bottom">
