@@ -34,10 +34,10 @@ describe('IdeaBrowseViewCtrl', function() {
 
     describe('receiving a server-sent event', function() {
 
-        it('should set $scope.topIdeas to data from event', function() {
-            expect(scope.topIdeas).not.toBe(null);
+        it('should set $scope.ideas to data from event', function() {
+            expect(scope.ideas).not.toBe(null);
             sseSvcMock.simulate();
-            expect(scope.topIdeas).toBe(null);
+            expect(scope.ideas).toBe(null);
         });
     });
 

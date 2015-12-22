@@ -7,19 +7,22 @@ angular.module('flintAndSteel')
         function($scope, ideaSvc, sseSvc) {
             "use strict";
 
+            $scope.loaded = false;
+
             function setIdeaHeaders(data) {
-                $scope.$apply(function() {
-                    $scope.topIdeas = data;
-                });
+                $scope.ideas = data;
+                $scope.loaded = true;
             }
 
-            ideaSvc.getIdeaHeaders(function getIdeaHeadersSuccess(data) {
-                $scope.topIdeas = data;
-            }, function getIdeaHeadersError(data, status) {
+            ideaSvc.getIdeaHeaders(setIdeaHeaders, function getIdeaHeadersError(data, status) {
                 console.log(status);
             });
 
-            sseSvc.create("newHeaders", "/ideaheaders/events", setIdeaHeaders);
+            sseSvc.create("newHeaders", "/ideaheaders/events", function(data) {
+                $scope.$apply(function() {
+                    setIdeaHeaders(data)
+                });
+            });
 
             $scope.$on('$stateChangeStart', function() {
                 sseSvc.destroy();

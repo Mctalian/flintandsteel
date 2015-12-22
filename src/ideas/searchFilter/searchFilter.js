@@ -12,29 +12,31 @@ angular.module('flintAndSteel')
                 }
                 var retArray = [];
                 var re = /[ .,-\/#!$%\^&\*;:{}=\-_`~()<>\'\"@\[\]\|\\\?]/g;
-                items.map(function(item) {
+                retArray = items.filter(function(item) {
                     var normalizedSearch = searchTerm.replace(re,"").toLowerCase();
                     var normalizedTitle = item.title.replace(re,"").toLowerCase();
                     var normalizedAuthor = item.author.name.replace(re,"").toLowerCase();
                     var normalizedAbstract = item.abstract.replace(re,"").toLowerCase();
                     var normalizedTags = item.tags;
+                    var isPresent = false;
                     if (normalizedTitle.indexOf(normalizedSearch) >= 0) {
-                        retArray.push(item);
+                        isPresent = true;
                     }
                     else if (normalizedAuthor.indexOf(normalizedSearch) >= 0) {
-                        retArray.push(item);
+                        isPresent = true;
                     }
                     else if (normalizedAbstract.indexOf(normalizedSearch) >= 0) {
-                        retArray.push(item);
+                        isPresent = true
                     }
                     else if (typeof normalizedTags !== 'undefined') {
                         normalizedTags.forEach(function(tag) {
                             tag = tag.replace(re,"").toLowerCase();
                             if (tag.indexOf(normalizedSearch) >= 0) {
-                                retArray.push(item);
+                                isPresent = true;
                             }
                         });
-                    }                    
+                    }
+                    return isPresent;
                 });
                 return retArray;
             };

@@ -3,12 +3,11 @@
     <h1>Ideas</h1>
     <md-input-container class="search-bar md-accent md-hue-1">
         <label>Search</label>
-        <input name="search" ng-model="searchText">
+        <input name="search" ng-model="searchText" ng-model-options="{debounce:150}">
     </md-input-container>
-    <div layout="row" layout-align="center center" layout-wrap>
-        <md-item ng-repeat="idea in searchResults=(topIdeas | search:searchText)">
-            <idea-item-browse idea="idea" ui-sref="idea({ ideaId: idea._id })" class="idea-pointer"></idea-item-browse>
-        </md-item>
-        <h3 class="no-ideas-div" ng-show="!searchResults.length"><i>No ideas match your search</i></h3>
+    <div layout="row" layout-align="center center" layout-wrap class="no-padding-top-lg">
+        <idea-item-browse ng-repeat="idea in searchResults=(ideas | search:searchText) track by idea._id" idea="idea" ui-sref="idea({ ideaId: idea._id })" class="idea-pointer"></idea-item-browse>
+        <h3 class="no-ideas-div" ng-show="!searchResults.length && loaded === true"><i>No ideas match your search</i></h3>
+        <md-progress-circular ng-if="loaded === false" md-mode="indeterminate"></md-progress-circular>
     </div>
 </md-content>

@@ -69,6 +69,10 @@ img.grayscale:hover {
     padding-left: 20px;
 }
 
+.no-padding-top-lg {
+    padding: 0 30px 30px 30px;
+}
+
 .no-padding-bottom {
     padding-bottom: 0px;
 }
