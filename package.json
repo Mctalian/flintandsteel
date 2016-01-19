@@ -58,6 +58,6 @@
     "mkdirs": "0.0.2",
     "mongodb": "2.0.45",
     "passport": "0.1.15",
-    "passport-windowsauth": "0.5.0"
+    "passport-windowsauth": "1.0.0"
   }
 }
