@@ -119,8 +119,11 @@ h2.no-bottom-margin {
 }
 
 .fab-layout {
-    margin-right: 20px;
-    margin-bottom: 10px;
+    top: auto;
+    right: 20px;
+    bottom: 20px;
+    left: auto;
+    position: fixed;
 }
 
 .top-ideas-list-item {

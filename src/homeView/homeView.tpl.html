@@ -1,29 +1,28 @@
 <div class="center-text" ng-if="browserVersion > 0">{{internetExplorerMessage}}</div>
-<md-content layout="row" class="cloud-container-padding">
-
-    <div id="wordcloud" flex="90"></div>
-</md-content>
-<!-- Begin Timeline -->
-<div layout="row" layout-align="center center" ng-hide="searchText">
-    <h2 class="homeview-padding-bottom">Event Schedule</h2>
-</div>
-<div class="container" ng-hide="searchText">
-    <div class="row">
-        <div class="timeline-centered">
-            <md-item ng-repeat="Event in Events">
-            <timeline-event  event="Event"/>
-            </md-item>
-            <article class="timeline-entry begin">
-                <div class="timeline-entry-inner">
-                    <div class="timeline-icon" style="-webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg);">
-                        <i class="entypo-flight"/>
-                    </div>
-                </div>
-            </article>
+<md-content layout="column" layout-align="start center" flex-offset="10" flex="80">
+    <h1 ng-if="topIdeas.length">Trending Ideas</h1>
+    <md-content layout="row" ng-if="topIdeas.length">
+        <div layout="row" layout-align="center center" class="no-ideas-div" ng-show="!topIdeas.length">
+            <h3><i>No ideas</i></h3>
         </div>
+        <div ng-repeat="idea in topIdeas | startFrom:currentPage.start | limitTo:currentPage.length">
+            <idea-item-browse idea="idea" ui-sref="idea({ ideaId: idea._id })" class="idea-pointer"></idea-item>
+        </div>
+    </md-content>
+    <h1>All Ideas</h1>
+    <md-input-container class="search-bar md-accent md-hue-1">
+        <label>Search</label>
+        <input name="search" ng-model="searchText">
+    </md-input-container>
+    <div layout="row" layout-align="space-around" layout-wrap>
+        <idea-item-browse ng-repeat="idea in searchResults=(ideas | search:searchText)" idea="idea" ui-sref="idea({ ideaId: idea._id })" class="idea-pointer"></idea-item-browse>
+        <h3 class="no-ideas-div" ng-show="!searchResults.length"><i>No ideas match your search</i></h3>
     </div>
-</div>
-<jqcloud words="words" width="500" height="350" steps="7"></jqcloud>
+</md-content>
+<md-button class="md-fab fab-layout" aria-label="Add another idea" ng-click="navTo('addidea')" ng-if="isUserLoggedIn()">
+    <i class="material-icons icon-button-adjust">&#xE145;</i>
+    <md-tooltip md-direction="left">Add Idea</md-tooltip>
+</md-button>
 <!-- End Timeline -->
 <div><h6><center><a ui-sref="about">About Us</a></center></h6></div>
 <div><h6><center><a ui-sref="innovationdisclosure">Innovation Disclosure Assistant</a></center></h6></div>

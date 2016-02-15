@@ -73,9 +73,9 @@
 
     <md-toolbar ng-controller="ToolbarCtrl">
         <div class="md-toolbar-tools">
-            <md-button hide-gt-md class="md-icon-button" aria-label="Menu" ng-click="showNav()">
+            <!-- <md-button hide-gt-md class="md-icon-button" aria-label="Menu" ng-click="showNav()">
                 <i class="material-icons icon-button-adjust">&#xE5D2;</i>
-            </md-button>
+            </md-button> -->
             <h2><span>
                 <img ui-sref="home" class="center-img nav-bar-pointer" src="assets/Innovation_Challenge_Bulb.png" width="25"/>
                 <md-tooltip md-direction="bottom">Home</md-tooltip>
@@ -123,8 +123,8 @@
         </div>
     </md-toolbar>
 
-    <md-content flex layout="row">
-        <md-sidenav md-is-locked-open="$mdMedia('gt-md')" class="md-whiteframe-z2" md-component-id="left" layout="column">
+    <!-- <md-content flex layout="row"> -->
+        <!-- <md-sidenav md-is-locked-open="$mdMedia('gt-md')" class="md-whiteframe-z2" md-component-id="left" layout="column">
             <md-content ng-controller="SidenavCtrl" flex>
                 <div layout="column" flex>
                     <div flex>
@@ -147,10 +147,10 @@
                     <md-tooltip md-direction="left">Add Idea</md-tooltip>
                 </md-button>
             </div>
-        </md-sidenav>
+        </md-sidenav> -->
 
         <md-content ui-view flex></md-content>
-    </md-content>
+    <!-- </md-content> -->
 
 </body>
 </html>

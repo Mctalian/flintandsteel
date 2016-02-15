@@ -19,6 +19,18 @@ angular.module('flintAndSteel')
                 }
                 return pages;
             };
+
+            this.createPerPage = function createPerPage(content, perPage) {
+                var pages = [];
+                var contentLength = content.length;
+                var numPerPage = perPage;
+
+                for (var index = 0; index < contentLength; index += numPerPage) {
+
+                    pages.push({start: index, length: numPerPage});
+                }
+                return pages;
+            };
         }
     ]
 );
