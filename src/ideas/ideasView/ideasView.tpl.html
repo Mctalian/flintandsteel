@@ -66,7 +66,7 @@
         <md-card-footer>
             <md-divider></md-divider>
             <span flex ng-if="!isUserLoggedIn()">
-                <md-button class="md-icon-button" aria-label="Like">
+                <md-button aria-label="Like">
                     {{idea.likes.length}}
                     <i class="material-icons icon-button-adjust">&#xE87E;</i>
                 </md-button>
@@ -74,14 +74,14 @@
             </span>
             <span flex ng-if="isUserLoggedIn()">
                 <span flex ng-if="!isUserLiked()">
-                    <md-button class="md-icon-button" aria-label="Like" ng-click="addNewInteraction('likes')">
+                    <md-button aria-label="Like" ng-click="addNewInteraction('likes')">
                         {{idea.likes.length}}
                         <i class="material-icons icon-button-adjust">&#xE87E;</i>
                     </md-button>
                     <md-tooltip md-direction="bottom">Like Idea</md-tooltip>
                 </span>
                 <span flex ng-if="isUserLiked()">
-                    <md-button class="md-icon-button" aria-label="Unlike" ng-click="removeInteraction('likes')">
+                    <md-button aria-label="Unlike" ng-click="removeInteraction('likes')">
                     {{idea.likes.length}}
                         <i class="material-icons icon-button-adjust">&#xE87D;</i>
                     </md-button>
@@ -89,7 +89,7 @@
                 </span>
             </span>
             <span flex ng-if="!isUserLoggedIn()">
-                <md-button class="md-icon-button" aria-label="Back" ng-click="focusBack()">
+                <md-button aria-label="Back" ng-click="focusBack()">
                     {{idea.backs.length}}
                     <i class="material-icons icon-button-adjust">&#xE893;</i>
                 </md-button>
@@ -97,7 +97,7 @@
             </span>
             <span flex ng-if="isUserLoggedIn()">
                 <span flex ng-if="!hasUserBacked()">
-                    <md-button class="md-icon-button" aria-label="Back" ng-click="focusBack()">
+                    <md-button aria-label="Back" ng-click="focusBack()">
                         {{idea.backs.length}}
                         <i class="material-icons icon-button-adjust">&#xE893;</i>
                     </md-button>
@@ -110,7 +110,7 @@
                     </md-tooltip>
                 </span>
                 <span flex ng-if="hasUserBacked()">
-                    <md-button class="md-icon-button" aria-label="Back" ng-click="focusBack()">
+                    <md-button aria-label="Back" ng-click="focusBack()">
                         {{idea.backs.length}}
                         <i class="material-icons icon-button-adjust">&#xE892;</i>
                     </md-button>
@@ -118,7 +118,7 @@
                 </span>
             </span>
             <span flex ng-if="!isUserLoggedIn()">
-                <md-button class="md-icon-button" aria-label="Team" ng-click="focusTeam()">
+                <md-button aria-label="Team" ng-click="focusTeam()">
                     {{idea.team.length}}
                     <i class="material-icons icon-button-adjust">&#xE7FC;</i>
                 </md-button>
@@ -126,14 +126,14 @@
             </span>
             <span flex ng-if="isUserLoggedIn()">
                 <span flex ng-if="!ideasView.isUserMemberOfTeam() && !hasUserBacked()">
-                    <md-button class="md-icon-button" aria-label="Team" ng-click="focusBack()">
+                    <md-button aria-label="Team" ng-click="focusBack()">
                         {{idea.team.length}}
                         <i class="material-icons icon-button-adjust">&#xE7FC;</i>
                     </md-button>
                     <md-tooltip md-direction="bottom">Back Idea First</md-tooltip>
                 </span>
                 <span flex ng-if="!ideasView.isUserMemberOfTeam() && hasUserBacked()">
-                    <md-button class="md-icon-button" aria-label="Team" ng-click="focusTeam()">
+                    <md-button aria-label="Team" ng-click="focusTeam()">
                         {{idea.team.length}}
                         <i class="material-icons icon-button-adjust">&#xE7FC;</i>
                     </md-button>
@@ -146,7 +146,7 @@
                     </md-tooltip>
                 </span>
                 <span flex ng-if="ideasView.isUserMemberOfTeam()" ng-click="focusTeam()">
-                    <md-button class="md-icon-button" aria-label="Team">
+                    <md-button aria-label="Team">
                         {{idea.team.length}}
                         <i class="material-icons icon-button-adjust">&#xE7FB;</i>
                     </md-button>
