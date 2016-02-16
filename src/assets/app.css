@@ -422,3 +422,12 @@ h2.no-bottom-margin {
 }
 /*----------------------------------------------------*/
 /*End Conversation Bubbles*/
+
+.toolbar-left-link {
+    margin-left: 200px;
+    cursor: pointer;
+}
+.toolbar-links {
+    margin-left: 30px;
+    cursor: pointer;
+}
